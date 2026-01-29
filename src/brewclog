@@ -5,4 +5,5 @@ if [[ -z "$1" ]]; then
   exit 1
 fi
 
-echo "Formula: $1"
+url=$(brew info --json=v1 "$1" | jq -r '.[0].homepage')
+echo "GitHub repo: $url"
